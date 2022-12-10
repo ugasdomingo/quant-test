@@ -108,5 +108,5 @@ getPodcast(); //Active Fetch to get 100 podcast just entering the page
 <!-- style for number of podcast been show -->
 <style lang="sass" scoped>
 .number-podcast
-    border-radius: 8px;
+    border-radius: 8px
 </style>

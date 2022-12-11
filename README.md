@@ -27,7 +27,7 @@ Readme index:
     components  --> All the app's components
     layouts     --> To desing the app's layout.
     css         --> Used for the global quasar variables
-    pages       --> Just the index page and the 404 page
+    pages       --> Indexpage, Podcast info page
     router      --> Only index page route
     store       --> Pinia stores and config
 
@@ -47,3 +47,6 @@ itunes.apple.com/lookup?id={podcastId}
 4. Notes
 
 a) All the code is commented, so you can get every step.
+b) Build command "quasar build"
+c) Dev command "quasar dev"
+d) NPM for Install

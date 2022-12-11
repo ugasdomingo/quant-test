@@ -49,10 +49,10 @@ export const usePodcastStore = defineStore('podcast', () => {
                     (data) => (
                         (onePodcast.value = JSON.parse(
                             data.contents
-                        ).results[0].trackCount),
+                        ).results[0].trackCount), // Store the number of podcast episodes
                         (urlPodcast.value = JSON.parse(
                             data.contents
-                        ).results[0].collectionViewUrl)
+                        ).results[0].collectionViewUrl) // Store the url of podcast episodes
                     )
                 );
 

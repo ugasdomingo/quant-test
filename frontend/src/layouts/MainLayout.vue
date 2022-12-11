@@ -3,7 +3,14 @@
     <q-layout view="hHh lpR fFf">
         <q-header reveal elevated class="bg-primary transparent text-primary">
             <q-toolbar>
-                <q-toolbar-title> Quant Podcast </q-toolbar-title>
+                <q-toolbar-title>
+                    <router-link
+                        to="/"
+                        class="text-bold"
+                        style="text-decoration: none"
+                        >Quant Podcast
+                    </router-link>
+                </q-toolbar-title>
             </q-toolbar>
         </q-header>
 

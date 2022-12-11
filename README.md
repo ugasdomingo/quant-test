@@ -39,6 +39,7 @@ Readme index:
     Get Podcast's Name = res.data.feed.entry[n]["im:name"].label
     Get Author's Name = res.data.feed.entry[n]["im:artist"].label
     Get Podcast's ID = res.data.feed.entry[n].id.attributes["im:id"]
+    Get Podcast's summary = res.data.feed.entry[n]["summary"].label
 
 --> Get data from individual Podcast, using this url: https://
 itunes.apple.com/lookup?id={podcastId}

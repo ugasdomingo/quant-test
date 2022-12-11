@@ -15,7 +15,7 @@
                 @keyup="filterPodcasts(textFilter)"
                 type="text"
                 label="filter podcast..."
-                style="max-width: 300px"
+                style="max-width: 450px"
             />
         </div>
         <!-- div to display all the podcast stored in showPodcast -->
@@ -39,6 +39,7 @@
 import { usePodcastStore } from 'src/stores/podcast-store'; // Stores for fetch to the API
 import CardGallery from 'src/components/CardGallery.vue'; // Component to show individual Podcast information
 import { ref } from 'vue';
+import { LocalStorage } from 'quasar';
 
 const podcastStore = usePodcastStore(); // Active the Stores for this page
 const infoPodcast = ref(); // Stores the info of the podcast clicked by user
@@ -47,6 +48,9 @@ const hundredPodcast = ref(); // Stores the original fetch of 100 Podcast
 const id = ref(); // Stores the id of the podcast clicked by user
 const textFilter = ref(''); // Stores the input for the users filter
 const nPodcast = ref(100); // Stores the Number of total podcast been show
+
+// Get 100 podcast info from localStorage
+showPodcast.value = LocalStorage.getItem('100 Podcast');
 
 // Funtion to camelcase the text input used for filter podcast
 const camelSentence = (str) => {
@@ -85,21 +89,6 @@ const filterPodcasts = (textFilter) => {
 
     //Stores the number of podcast been show after filter
     nPodcast.value = showPodcast.value.length;
-};
-
-// Funtion to get the info of one Podcast by id
-const getOnePodcast = () => {
-    // with fetch
-    fetch(
-        `https://api.allorigins.win/get?url=${encodeURIComponent(
-            'https://itunes.apple.com/lookup?id=' + id.value
-        )}`
-    )
-        .then((response) => {
-            if (response.ok) return response.json();
-            throw new Error('Network response was not ok.');
-        })
-        .then((data) => (infoPodcast.value = data.contents));
 };
 
 getPodcast(); //Active Fetch to get 100 podcast just entering the page

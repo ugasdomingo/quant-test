@@ -1,13 +1,29 @@
 <script setup>
 // Card to show every Podcast in the index page
+import { LocalStorage } from 'quasar';
+import { useRouter } from 'vue-router';
+import { usePodcastStore } from 'src/stores/podcast-store';
+
 // Props of the 100 Podcast fetch in the index page
 defineProps({
     podcast: Object,
 });
+
+const router = useRouter();
+const podcastStore = usePodcastStore();
+const infoPodcast = async (podcast) => {
+    await podcastStore.getOnePodcast(podcast.id);
+    LocalStorage.set(podcast.id, podcast);
+    LocalStorage.set('nPodcast', podcastStore.onePodcast);
+    router.push(`/podcast/${podcast.id}`);
+};
 </script>
 
 <template>
-    <q-card class="my-card column items-center cursor-pointer">
+    <q-card
+        @click="infoPodcast(podcast)"
+        class="my-card column items-center cursor-pointer"
+    >
         <!-- image of podcast -->
         <img style="height: 250px; max-width: 250px" :src="podcast?.img" />
         <q-card-section class="text-center">

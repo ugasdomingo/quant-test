@@ -1,6 +1,7 @@
 Quant Podcast.
 
 This is a Single Page Application, where you can find 100 podcast listed in Itunes. Enjoy it at: 
+    https://quant-test-lmmm0046y-ugasdomingo.vercel.app/
 
 Read the next index to find whatever you need in this app development, I'm using an MIT license.
 
